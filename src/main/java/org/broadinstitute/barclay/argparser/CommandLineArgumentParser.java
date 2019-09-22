@@ -383,7 +383,8 @@ public final class CommandLineArgumentParser implements CommandLineParser {
     private final void printArgumentUsageBlock(final StringBuilder sb, final String preamble, final List<NamedArgumentDefinition> args) {
         if (args != null && !args.isEmpty()) {
             sb.append(preamble);
-            args.stream().sorted(NamedArgumentDefinition.sortByLongName)
+            args.stream()
+                    //.sorted(NamedArgumentDefinition.sortByLongName)
                     .forEach(argumentDefinition -> sb.append(argumentDefinition.getArgumentUsage(
                             namedArgumentsDefinitionsByAlias,
                             pluginDescriptors.values(),
